@@ -52,9 +52,9 @@ public class ProjectDeductiveDatabase {
 	}//end getDatos
 
 	public static void cargarArchivos(){
-		database = new DeductiveDatabase("/Users/tony/Documents/dlv/dlv.bin");
-		database.load("/Users/tony/Documents/dlv/enfermosFacts.txt");
-		database.load("/Users/tony/Documents/dlv/enfermosRules.txt");
+		database = new DeductiveDatabase("./dlv.bin");
+		database.load("./enfermosFacts.txt");
+		database.load("./enfermosRules.txt");
 		answerSet = database.getAnswerSet();
 	}
 

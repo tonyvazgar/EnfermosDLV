@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	                        RULES                           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%Decimos que una persona puede estar enferma de una ENFERMEDAD
+%%si tiene cierto sintoma y esos sintomas están asociados a una
+%%ENFERMEDAD
+
+puedeEstarEnfermoDe(PERSONA, ENFERMEDAD):-
+	tieneSintoma(PERSONA, SINTOMA),
+	sintomas(ENFERMEDAD, SINTOMA).
+
+
+
+
+
+%%Conociendo la enfermedad que tiene un paciente,
+%%podemos recomendarle que puede tomar un MEDICAMENTO
+%%asociado a esa enfermedad
+
+puedeTomar(PACIENTE, MEDICAMENTO):-
+	puedeEstarEnfermoDe(PACIENTE, ENFERMEDAD),
+	enfermedad(ENFERMEDAD, MEDICAMENTO).
+
+
+
+
+
+%%Decimos que una enfermedad X tiene cura si tenemos
+%%Conocimiento si la enfermedad X tiene un medicamento
+%%y ese medicamento lo conocemos
+
+enfermedadQueTieneCura(X):-
+	enfermedad(X, Y),
+	medicamento(Y).
+
+
+
+
+
+
+
+%%Decimos que un sintoma comun existe si una persona
+%%tiene un sintoma y ese sintoma tenemos Conocimiento
+%%de que existe
+
+sintomaComun(SINTOMA):-
+	tieneSintoma(PERSONA, SINTOMA),
+	sintomas(ENFERMEDAD, SINTOMA).
+
+
+
+
+
+%%Decimos que una persona no tiene cura si sus sintomas
+%%no son comunes y ninguna persona lo tiene
+
+noTieneCura(PERSONA):-
+	tieneSintoma(PERSONA, SINTOMA),
+	not sintomaComun(SINTOMA).
+
+
+
+
+
+%%Decimos que dos personas son compañeros de sintomas
+%%si comparten los mismos sintomas y esas personas
+%%SI tienen cura
+
+puedenSerAmigosEnfermos(X, Y):-
+	tieneSintoma(X, SINTOMA),
+	tieneSintoma(Y, SINTOMA),
+	not noTieneCura(X),
+	not noTieneCura(Y),
+	X <> Y.
+
+
+enfermedadSinCura(X):-
+	noTieneCura(PERSONA),
+	tieneSintoma(PERSONA, X),
+	not sintomaComun(X).

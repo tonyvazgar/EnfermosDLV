@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	                        FACTS                           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+persona(tony).
+persona(carlos).
+persona(luis).
+persona(monica).
+persona(victor).
+
+tieneSintoma(tony, "presion alta").
+tieneSintoma(tony, "dolor de ojos").
+tieneSintoma(tony, fiebre).
+
+tieneSintoma(carlos, nauceas).
+tieneSintoma(carlos, moretones).
+
+tieneSintoma(monica, fiebre).
+tieneSintoma(monica, cansancio).
+tieneSintoma(monica, nauceas).
+
+tieneSintoma(luis, fiebre).
+tieneSintoma(luis, catarro).
+tieneSintoma(luis, torticolis).
+
+tieneSintoma(victor, moretones).
+tieneSintoma(victor, inflamacion).
+
+medicamento(paracetamol).
+medicamento(febrax).
+medicamento(diclofenaco).
+medicamento(ambroxol).
+medicamento("Caldo de pollo").
+
+
+enfermedad("Dolor de cabeza", febrax).
+enfermedad("Dolor de cabeza", paracetamol).
+enfermedad(embaramiento, febrax).
+enfermedad(embaramiento, paracetamol).
+enfermedad(embaramiento, diclofenaco).
+enfermedad(embaramiento, "Caldo de pollo").
+enfermedad(resfriado, paracetamol).
+enfermedad(resfriado, "Caldo de pollo").
+enfermedad("Dolor de panza", ambroxol).
+enfermedad("Dolor de panza", "Caldo de pollo").
+
+sintomas("Dolor de cabeza", "presion alta").
+sintomas("Dolor de cabeza", "dolor de ojos").
+sintomas("Dolor de cabeza", cansancio).
+sintomas("Dolor de cabeza", fiebre).
+
+sintomas(embaramiento, "dolor al moverse").
+sintomas(embaramiento, inflamacion).
+sintomas(embaramiento, moretones).
+sintomas(embaramiento, nauceas).
+
+sintomas(resfriado, "cuerpo cortado").
+sintomas(resfriado, "ojos llorosos").
+sintomas(resfriado, catarro).
+sintomas(resfriado, hipersensibilidad).
+sintomas(resfriado, fiebre).
+
+sintomas("Dolor de panza", fiebre).
+sintomas("Dolor de panza", diarrea).
+sintomas("Dolor de panza", cansancio).
+sintomas("Dolor de panza", vomito).
+sintomas("Dolor de panza", nauceas).
+sintomas("Dolor de panza", espasmos).
