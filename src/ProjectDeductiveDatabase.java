@@ -185,4 +185,32 @@ public class ProjectDeductiveDatabase {
 			}
 		}
 	}
+
+	public void agregar(String aAgregar) {
+		cargarArchivos();
+		Scanner scanner = new Scanner(System.in);
+		if(aAgregar.equals("persona"))
+		{
+			System.out.println("Ingresa el nombre de la persona");
+			String nombre = scanner.nextLine();
+			fact = new Fact("persona");
+			fact.addArgument(nombre);
+			database.addFact(fact);
+			database.show();
+		}
+		if(aAgregar.equals("sintomas"))
+		{
+			fact = new Fact("tieneSintoma");
+
+			System.out.println("Ingresa el nombre de la persona a asignar sintoma");
+			String nombre = scanner.nextLine();
+			fact.addArgument(nombre);
+			System.out.println("Ingresa el nombre del sitoma");
+			nombre = scanner.nextLine();
+			fact.addArgument(nombre);
+
+			database.addFact(fact);
+			database.show();
+		}
+	}
 }//end ProjectDeductiveDatabase

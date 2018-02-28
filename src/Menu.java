@@ -28,7 +28,8 @@ public class Menu {
             System.out.println("     [7] Ver enfermedades que tienen cura");
             System.out.println("     [8] Ver personas que no tienen cura");
             System.out.println("     [9] Ver los amigos que están en las buenas y en las malas");
-            System.out.println("     [10] Salir");
+            System.out.println("     [10] Para agregar nuevos hechos.");
+            System.out.println("     [11] Salir");
             try {
                 opcion = scanner.nextInt();
                 switch (opcion) {
@@ -63,6 +64,19 @@ public class Menu {
                         datos.cargarAmigos();
                         break;
                     case 10:
+                        System.out.println("     [0] Para agregar una persona");
+                        System.out.println("     [1] Para agregar una sintomas");
+                        int agregar = scanner.nextInt();
+                        switch (agregar){
+                            case 0:
+                                datos.agregar("persona");
+                                break;
+                            case 1:
+                                datos.agregar("sintomas");
+                                break;
+                        }
+                        break;
+                    case 11:
                         terminado = true;
                         break;
                     default:
