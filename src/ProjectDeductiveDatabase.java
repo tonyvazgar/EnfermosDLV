@@ -137,7 +137,7 @@ public class ProjectDeductiveDatabase {
 		System.out.println(" *****************************************************");
 	}
 
-	public static void cargarDesahuciados() {
+	public static void cargarDesahuciado() {
 		cargarArchivos();
 		datos = getDatos(answerSet);
 		System.out.println(" ***ESTAS PERSONAS YA NO TIENEN CURA*** ");

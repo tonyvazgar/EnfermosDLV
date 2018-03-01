@@ -58,7 +58,7 @@ public class Menu {
                         datos.cargarEnfermedadesConCura();
                         break;
                     case 8:
-                        datos.cargarDesahuciados();
+                        datos.cargarDesahuciado();
                         break;
                     case 9:
                         datos.cargarAmigos();
