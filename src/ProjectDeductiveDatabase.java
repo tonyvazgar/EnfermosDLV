@@ -58,115 +58,130 @@ public class ProjectDeductiveDatabase {
 		answerSet = database.getAnswerSet();
 	}
 
-	public static void cargarPersonas(){
+	public static String cargarPersonas(){
+		String personas = "";
 		cargarArchivos();
 		datos = getDatos(answerSet);
 		System.out.println(" ***PERSONAS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("persona")){
-				System.out.println("    " + elDato.getArgument(0));
+				//System.out.println("    " + elDato.getArgument(0));
+				personas = personas + elDato.getArgument(0) + "\n";
 
 			}
 		}
-		System.out.println(" ************** ");
+		return personas;
 	}
 
-	public static void cargarSintomasDePersonas() {
+	public static String cargarSintomasDePersonas() {
 		cargarArchivos();
+		String sintomas = "";
 		datos = getDatos(answerSet);
 		System.out.println(" ***SINTOMAS DE PERSONAS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("tieneSintoma")){
-				System.out.print("    " + elDato.getArgument(0));
-				System.out.println("  -->  " + elDato.getArgument(1));
-
+				//System.out.print("    " + elDato.getArgument(0));
+				//System.out.println("  -->  " + elDato.getArgument(1));
+				sintomas = sintomas + elDato.getArgument(0) + "  -->  " + elDato.getArgument(1) + "\n";
 			}
 		}
-		System.out.println(" **************************");
+		return sintomas;
 	}
 
-	public static void cargarMedicinaEnfermedad() {
+	public static String cargarMedicinaEnfermedad() {
 		cargarArchivos();
+		String medicinas = "";
 		datos = getDatos(answerSet);
 		System.out.println(" ***PARA ESTAS ENFERMEDADES SE USAN ESTAS \"MEDICINAS\"*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("enfermedad")){
-				System.out.print(" Para enfermedad: " + elDato.getArgument(0));
-				System.out.println(" tomar  -->  " + elDato.getArgument(1));
-
+				//System.out.print(" Para enfermedad: " + elDato.getArgument(0));
+				//System.out.println(" tomar  -->  " + elDato.getArgument(1));
+				medicinas = medicinas + " Para enfermedad: " + elDato.getArgument(0) + " tomar  -->  " + elDato.getArgument(1) + "\n";
 			}
 		}
-		System.out.println(" *****************************************************");
+		return medicinas;
 	}
 
-	public static void cargarPuedeEstarEnfermo() {
+	public static String cargarPuedeEstarEnfermo() {
 		cargarArchivos();
+		String posibleEnfermedad = "";
 		datos = getDatos(answerSet);
 		System.out.println(" ***ENFERMEDADES DE LAS CUALES PUEDEN ESTAR ENFERMAS LAS PERSONAS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedeEstarEnfermoDe")){
-				System.out.print(elDato.getArgument(0).toUpperCase());
-				System.out.println(" puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase());
+				//System.out.print(elDato.getArgument(0).toUpperCase());
+				//System.out.println(" puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase());
+				posibleEnfermedad = posibleEnfermedad + elDato.getArgument(0).toUpperCase() + " puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase() + "\n";
 			}
 		}
-		System.out.println(" *****************************************************");
+		return posibleEnfermedad;
 	}
 
-	public static void cargarPosiblesMedicamentos() {
+	public static String cargarPosiblesMedicamentos() {
 		cargarArchivos();
+		String medicamentos = "";
 		datos = getDatos(answerSet);
 		System.out.println(" ***ESTO PUEDEN TOMAR LAS PERSONAS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedeTomar")){
-				System.out.print(elDato.getArgument(0).toUpperCase());
-				System.out.println(" puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase());
+				//System.out.print(elDato.getArgument(0).toUpperCase());
+				//System.out.println(" puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase());
+				medicamentos = medicamentos + elDato.getArgument(0).toUpperCase() + " puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase() + "\n";
 			}
 		}
-		System.out.println(" *****************************************************");
+		return medicamentos;
 	}
 
-	public static void cargarEnfermedadesConCura() {
+	public static String cargarEnfermedadesConCura() {
 		cargarArchivos();
+		String cura = "";
 		datos = getDatos(answerSet);
 		System.out.println(" ***ESTAS ENFERMEDADES TIENEN CURA*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("enfermedadQueTieneCura")){
-				System.out.println(" " + elDato.getArgument(0));
+				//System.out.println(" " + elDato.getArgument(0));
+				cura = cura + elDato.getArgument(0) + "\n";
 			}
 		}
-		System.out.println(" *****************************************************");
+		return  cura;
 	}
 
-	public static void cargarDesahuciado() {
+	public static String cargarDesahuciado() {
 		cargarArchivos();
+		String muertos = "";
 		datos = getDatos(answerSet);
 		System.out.println(" ***ESTAS PERSONAS YA NO TIENEN CURA*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("noTieneCura")){
-				System.out.println(" El paciente " + elDato.getArgument(0).toUpperCase() + " esta desahuciado.");
+				//System.out.println(" El paciente " + elDato.getArgument(0).toUpperCase() + " esta desahuciado.");
+				muertos = muertos + " El paciente " + elDato.getArgument(0).toUpperCase() + " esta desahuciado." + "\n";
 			}
 		}
-		System.out.println(" *****************************************************");
+		return muertos;
 	}
 
-	public static void cargarAmigos() {
+	public static String cargarAmigos() {
 		cargarArchivos();
+		String amigos = "";
 		datos = getDatos(answerSet);
 		System.out.println(" ***PUEDEN SER AMIGOS ENFERMOS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedenSerAmigosEnfermos")){
-				System.out.println(" " + elDato.getArgument(0) + " y " + elDato.getArgument(1) + " pueden ser amigos enfermos.");
+				//System.out.println(" " + elDato.getArgument(0) + " y " + elDato.getArgument(1) + " pueden ser amigos enfermos.");
+				amigos = amigos + elDato.getArgument(0) + " y " + elDato.getArgument(1) + " pueden ser amigos enfermos." + "\n";
 			}
 		}
-		System.out.println(" *****************************************************");
+		return amigos;
 	}
 
-	public static void cargarAnswerSet(){
+	public static String cargarAnswerSet(){
 		cargarArchivos();
-		database.show();
+		return database.showInConsole();
 	}
 
-	public void resumen() {
+	public String resumen() {
+		String resumen = "";
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Ingresa el nombre de la persona o del medicamento/enfermedad/Sintoma");
 		String nombre = scanner.nextLine();
@@ -179,11 +194,13 @@ public class ProjectDeductiveDatabase {
 			{
 				if(elDato.getArgument(i).equals(nombre))
 				{
-					System.out.println(elDato.getPredicate() + elDato.arguments.toString().replace("[", "(").replace("]",")"));
+					//System.out.println(elDato.getPredicate() + elDato.arguments.toString().replace("[", "(").replace("]",")"));
+					resumen = resumen + elDato.getPredicate() + elDato.arguments.toString().replace("[", "(").replace("]",")") + "\n";
 				}
 				i = i + 1;
 			}
 		}
+		return resumen;
 	}
 
 	public void agregar(String aAgregar) {
@@ -213,4 +230,5 @@ public class ProjectDeductiveDatabase {
 			database.show();
 		}
 	}
+
 }//end ProjectDeductiveDatabase

@@ -34,34 +34,34 @@ public class Menu {
                 opcion = scanner.nextInt();
                 switch (opcion) {
                     case 0:
-                        datos.resumen();
+                        System.out.println(datos.resumen());
                         break;
                     case 1:
-                        datos.cargarAnswerSet();
+                        System.out.println(datos.cargarAnswerSet());
                         break;
                     case 2:
-                        datos.cargarPersonas();
+                        System.out.println(datos.cargarPersonas());
                         break;
                     case 3:
-                        datos.cargarSintomasDePersonas();
+                        System.out.println(datos.cargarSintomasDePersonas());
                         break;
                     case 4:
-                        datos.cargarMedicinaEnfermedad();
+                        System.out.println(datos.cargarMedicinaEnfermedad());
                         break;
                     case 5:
-                        datos.cargarPuedeEstarEnfermo();
+                        System.out.println(datos.cargarPuedeEstarEnfermo());
                         break;
                     case 6:
-                        datos.cargarPosiblesMedicamentos();
+                        System.out.println(datos.cargarPosiblesMedicamentos());
                         break;
                     case 7:
-                        datos.cargarEnfermedadesConCura();
+                        System.out.println(datos.cargarEnfermedadesConCura());
                         break;
                     case 8:
-                        datos.cargarDesahuciado();
+                        System.out.println(datos.cargarDesahuciado());
                         break;
                     case 9:
-                        datos.cargarAmigos();
+                        System.out.println(datos.cargarAmigos());
                         break;
                     case 10:
                         System.out.println("     [0] Para agregar una persona");

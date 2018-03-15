@@ -212,6 +212,24 @@ public class DeductiveDatabase {
         System.out.println("========================================");
     }//end presentaAnswerSet
 
+
+	public String showInConsole()
+	{
+		FactResult factResult;
+		int i;
+		//
+		String data = "=============ANSWER-SET=================\n";
+		i = 0;
+		while( i < answerSet.size())
+		{
+			factResult = answerSet.get(i);
+			//System.out.println(factResult);
+			data = data + factResult + "\n";
+			i = i + 1;
+		}//end while
+		data = data + "========================================";
+		return data;
+	}//end presentaAnswerSet
 	/////////////////////////////////////////////////////////////
 
 
