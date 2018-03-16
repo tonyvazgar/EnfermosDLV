@@ -218,7 +218,7 @@ public class DeductiveDatabase {
 		FactResult factResult;
 		int i;
 		//
-		String data = "=============ANSWER-SET=================\n";
+		String data = "=======================ANSWER-SET=========================\n";
 		i = 0;
 		while( i < answerSet.size())
 		{
@@ -227,7 +227,7 @@ public class DeductiveDatabase {
 			data = data + factResult + "\n";
 			i = i + 1;
 		}//end while
-		data = data + "========================================";
+		data = data + "===========================================================";
 		return data;
 	}//end presentaAnswerSet
 	/////////////////////////////////////////////////////////////

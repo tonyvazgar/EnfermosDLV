@@ -26,11 +26,13 @@ public class InterfazPrincipal extends Frame{
     Button enfermedadesSinCura;
     Button liciados;
     Button amigosEnfermos;
-    Button nuevosHechos;
+    Button sinCura;
 
     TextArea consola;
 
-
+    /* ---------------------------------------------- *
+     *            Constructor de la clase             *
+     * ---------------------------------------------- */
     public InterfazPrincipal() {
         setTitle("*PROGRAMA EN DLV*");
         setBounds(100, 100, 900, 800);
@@ -47,55 +49,12 @@ public class InterfazPrincipal extends Frame{
      *           Metodos del la clase view            *
      * ---------------------------------------------- */
     
-    public void constuyeComponentes() {
+    private void constuyeComponentes() {
         ponerBotones();
         ponerConsola();
     }
 
-    public void setActionListener(Object theController) {
-        verAnswerSet.addActionListener((ActionListener) theController);
-        sintomasDePersonas.addActionListener((ActionListener) theController);
-        medicamentosParaEnfermedad.addActionListener((ActionListener) theController);
-        posiblesEnfermedades.addActionListener((ActionListener) theController);
-        puedeTomarUnaPersona.addActionListener((ActionListener) theController);
-        enfermedadesSinCura.addActionListener((ActionListener) theController);
-        liciados.addActionListener((ActionListener) theController);
-        amigosEnfermos.addActionListener((ActionListener) theController);
-        nuevosHechos.addActionListener((ActionListener) theController);
-    }
-
-    public void actionPerformed(ActionEvent evento) {
-
-        Button botonAccionado = (Button) evento.getSource();
-
-        if (botonAccionado == verAnswerSet) {
-            consola.setText(ProjectDeductiveDatabase.cargarAnswerSet());
-        } else if (botonAccionado == personasExistentes) {
-            consola.setText(ProjectDeductiveDatabase.cargarPersonas());
-        } else if (botonAccionado == sintomasDePersonas) {
-            consola.setText(ProjectDeductiveDatabase.cargarSintomasDePersonas());
-        } else if (botonAccionado == medicamentosParaEnfermedad) {
-            consola.setText(ProjectDeductiveDatabase.cargarMedicinaEnfermedad());
-        } else if (botonAccionado == posiblesEnfermedades) {
-            consola.setText(ProjectDeductiveDatabase.cargarPuedeEstarEnfermo());
-        } else if (botonAccionado == puedeTomarUnaPersona) {
-            consola.setText(ProjectDeductiveDatabase.cargarPosiblesMedicamentos());
-        } else if(botonAccionado == enfermedadesSinCura){
-            consola.setText(ProjectDeductiveDatabase.cargarEnfermedadesConCura());
-        }else if(botonAccionado == liciados){
-            consola.setText(ProjectDeductiveDatabase.cargarDesahuciado());
-        }else if(botonAccionado == amigosEnfermos){
-            consola.setText(ProjectDeductiveDatabase.cargarAmigos());
-        }else if(botonAccionado == nuevosHechos){
-            consola.setText(ProjectDeductiveDatabase.cargarEnfermedadesSinCura());
-        }
-    }
-
-    /* ---------------------------------------------- *
-     *               Metodos propios                  *
-     * ---------------------------------------------- */
-    
-    public void ponerBotones(){
+    private void ponerBotones(){
         verAnswerSet = new Button("Ver el Answer-Set");
         personasExistentes = new Button("Ver las personas que existen");
         sintomasDePersonas = new Button("Ver sintomas de las personas");
@@ -105,7 +64,7 @@ public class InterfazPrincipal extends Frame{
         enfermedadesSinCura = new Button("Ver enfermedades que tienen cura");
         liciados = new Button("Ver personas desahuciadas");
         amigosEnfermos = new Button("Amigos que están en las buenas y en las malas");
-        nuevosHechos = new Button("Agregar hechos");
+        sinCura = new Button("Ver enfermedades SIN cura");
 
         verAnswerSet.setBounds(570, 100, 300, 20);
         verAnswerSet.setFont(tipografia);
@@ -126,42 +85,44 @@ public class InterfazPrincipal extends Frame{
         add(liciados);
         amigosEnfermos.setBounds(570,420,300,20);
         add(amigosEnfermos);
-        nuevosHechos.setBounds(570,460,300,20);
-        add(nuevosHechos);
+        sinCura.setBounds(570,460,300,20);
+        add(sinCura);
 
-        verAnswerSet.addActionListener(this::actionPerformed);
-        personasExistentes.addActionListener(this::actionPerformed);
-        sintomasDePersonas.addActionListener(this::actionPerformed);
-        medicamentosParaEnfermedad.addActionListener(this::actionPerformed);
-        posiblesEnfermedades.addActionListener(this::actionPerformed);
-        puedeTomarUnaPersona.addActionListener(this::actionPerformed);
-        enfermedadesSinCura.addActionListener(this::actionPerformed);
-        liciados.addActionListener(this::actionPerformed);
-        amigosEnfermos.addActionListener(this::actionPerformed);
-        nuevosHechos.addActionListener(this::actionPerformed);
     }
 
-    public void ponerConsola(){
+    private void ponerConsola(){
         consola = new TextArea();
         consola.setBounds(50, 50, 500, 700);
         consola.setEditable(false);
         consola.setText("********************************* Inteligencia Artificial *************************************\n" +
-                "\n                        Luis Antonio Vázquez García     ID: 153675\n" +
-                "\nProyecto en donde se usa el lenguaje DLV para crear una base de datos\n" +
-                "deductiva");
+                "\n                        Luis Antonio Vázquez García     ID: 153675\n");
         add(consola);
     }
 
-    public void inicia() {
-        setVisible(true);
-    }
-
-    public void endProgram() {
+    private void endProgram() {
         addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent we)
             {
                 System.exit(0);
             }
         });
+    }
+
+    public void inicia(Controler theControler) {
+        setVisible(true);
+        setActionListener(theControler);
+    }
+
+    public void setActionListener(Controler theController) {
+        verAnswerSet.addActionListener(theController);
+        sintomasDePersonas.addActionListener(theController);
+        medicamentosParaEnfermedad.addActionListener(theController);
+        posiblesEnfermedades.addActionListener(theController);
+        puedeTomarUnaPersona.addActionListener(theController);
+        System.out.println("asdsdsdsfafaf");
+        enfermedadesSinCura.addActionListener(theController);
+        liciados.addActionListener(theController);
+        amigosEnfermos.addActionListener(theController);
+        sinCura.addActionListener(theController);
     }
 }

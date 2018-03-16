@@ -2,16 +2,17 @@ public class Main {
 
     public static void main(String[] Args){
 
-        ProjectDeductiveDatabase datos;
-        Menu menu;
-        InterfazPrincipal interfaz;
+        ProjectDeductiveDatabase model;
+        InterfazPrincipal view;
+        Controler controler;
+        //Menu menu;
 
-        datos = new ProjectDeductiveDatabase();
-        menu = new Menu(datos);
-        interfaz = new InterfazPrincipal();
+        model = new ProjectDeductiveDatabase();
+        //menu = new Menu(model);
+        view = new InterfazPrincipal();
+        controler = new Controler(model, view);
 
-        interfaz.inicia();
-
-        menu.iniciar();
+        view.inicia(controler);
+        //menu.iniciar();
     }
 }

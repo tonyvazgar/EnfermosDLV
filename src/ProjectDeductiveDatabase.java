@@ -6,9 +6,9 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 
 public class ProjectDeductiveDatabase {
+
 	static DeductiveDatabase database;
 	static Vector<FactResult>  answerSet;
-
 	static Vector<Dato> datos;
 	static int i;
 	static Dato dato;
@@ -64,9 +64,7 @@ public class ProjectDeductiveDatabase {
 		datos = getDatos(answerSet);
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("persona")){
-				//System.out.println("    " + elDato.getArgument(0));
 				personas = personas + elDato.getArgument(0).toUpperCase() + "\n";
-
 			}
 		}
 		return personas;
@@ -78,8 +76,6 @@ public class ProjectDeductiveDatabase {
 		datos = getDatos(answerSet);
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("tieneSintoma")){
-				//System.out.print("    " + elDato.getArgument(0));
-				//System.out.println("  -->  " + elDato.getArgument(1));
 				sintomas = sintomas + elDato.getArgument(0).toUpperCase() + "  tiene  " + elDato.getArgument(1) + "\n";
 			}
 		}
@@ -92,8 +88,6 @@ public class ProjectDeductiveDatabase {
 		datos = getDatos(answerSet);
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("enfermedad")){
-				//System.out.print(" Para enfermedad: " + elDato.getArgument(0));
-				//System.out.println(" tomar  -->  " + elDato.getArgument(1));
 				medicinas = medicinas + "Para " + elDato.getArgument(0).toUpperCase() + " tomar " + elDato.getArgument(1) + "\n";
 			}
 		}
@@ -106,8 +100,6 @@ public class ProjectDeductiveDatabase {
 		datos = getDatos(answerSet);
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedeEstarEnfermoDe")){
-				//System.out.print(elDato.getArgument(0).toUpperCase());
-				//System.out.println(" puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase());
 				posibleEnfermedad = posibleEnfermedad + elDato.getArgument(0).toUpperCase() + " puede tener  ->  " + elDato.getArgument(1).toUpperCase() + "\n";
 			}
 		}
@@ -120,8 +112,6 @@ public class ProjectDeductiveDatabase {
 		datos = getDatos(answerSet);
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedeTomar")){
-				//System.out.print(elDato.getArgument(0).toUpperCase());
-				//System.out.println(" puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase());
 				medicamentos = medicamentos + elDato.getArgument(0).toUpperCase() + " puede tomar  ->  " + elDato.getArgument(1).toUpperCase() + "\n";
 			}
 		}
@@ -130,13 +120,11 @@ public class ProjectDeductiveDatabase {
 
 	public static String cargarEnfermedadesConCura() {
 		cargarArchivos();
-		String cura = "";
+		String cura = "***********ESTAS ENFERMEDADES TIENEN CURA***********\n\n";
 		datos = getDatos(answerSet);
-		System.out.println(" ***ESTAS ENFERMEDADES TIENEN CURA*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("enfermedadQueTieneCura")){
-				//System.out.println(" " + elDato.getArgument(0));
-				cura = cura + elDato.getArgument(0) + "\n";
+				cura = cura + elDato.getArgument(0).toUpperCase() + "\n";
 			}
 		}
 		return  cura;
@@ -144,13 +132,10 @@ public class ProjectDeductiveDatabase {
 
 	public static String cargarDesahuciado() {
 		cargarArchivos();
-		String muertos = "";
-		datos = getDatos(answerSet);
-		System.out.println(" ***ESTAS PERSONAS YA NO TIENEN CURA*** ");
+		String muertos = "**********ESTAS PERSONAS YA NO TIENEN CURA**********\n\n";
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("noTieneCura")){
-				//System.out.println(" El paciente " + elDato.getArgument(0).toUpperCase() + " esta desahuciado.");
-				muertos = muertos + " El paciente " + elDato.getArgument(0).toUpperCase() + " esta desahuciado." + "\n";
+				muertos = muertos + "El paciente " + elDato.getArgument(0).toUpperCase() + " esta desahuciado." + "\n";
 			}
 		}
 		return muertos;
@@ -158,13 +143,13 @@ public class ProjectDeductiveDatabase {
 
 	public static String cargarAmigos() {
 		cargarArchivos();
-		String amigos = "";
+		String amigos = "***********PERSONAS QUE TIENEN LA MISMA ENFERMEDAD***************************\n\nDecimos que dos personas son compañeros de sintomas\n" +
+				"si comparten los mismos sintomas y tienen la misma enfermedad\n\n";
 		datos = getDatos(answerSet);
 		System.out.println(" ***PUEDEN SER AMIGOS ENFERMOS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedenSerAmigosEnfermos")){
-				//System.out.println(" " + elDato.getArgument(0) + " y " + elDato.getArgument(1) + " pueden ser amigos enfermos.");
-				amigos = amigos + elDato.getArgument(0) + " y " + elDato.getArgument(1) + " pueden ser amigos enfermos." + "\n";
+				amigos = amigos + elDato.getArgument(0).toUpperCase() + " y " + elDato.getArgument(1).toUpperCase() + " pueden ser amigos enfermos." + "\n";
 			}
 		}
 		return amigos;
@@ -189,7 +174,6 @@ public class ProjectDeductiveDatabase {
 			{
 				if(elDato.getArgument(i).equals(nombre))
 				{
-					//System.out.println(elDato.getPredicate() + elDato.arguments.toString().replace("[", "(").replace("]",")"));
 					resumen = resumen + elDato.getPredicate() + elDato.arguments.toString().replace("[", "(").replace("]",")") + "\n";
 				}
 				i = i + 1;
@@ -233,7 +217,6 @@ public class ProjectDeductiveDatabase {
 		datos = getDatos(answerSet);
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("enfermedadSinCura")){
-				//System.out.println(" " + elDato.getArgument(0) + " y " + elDato.getArgument(1) + " pueden ser amigos enfermos.");
 				epidemia = epidemia + elDato.getArgument(0).toUpperCase();
 			}
 		}
