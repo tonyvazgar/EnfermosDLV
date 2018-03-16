@@ -59,14 +59,13 @@ public class ProjectDeductiveDatabase {
 	}
 
 	public static String cargarPersonas(){
-		String personas = "";
+		String personas = "***************************** Personas que existen *************************************\n\n";
 		cargarArchivos();
 		datos = getDatos(answerSet);
-		System.out.println(" ***PERSONAS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("persona")){
 				//System.out.println("    " + elDato.getArgument(0));
-				personas = personas + elDato.getArgument(0) + "\n";
+				personas = personas + elDato.getArgument(0).toUpperCase() + "\n";
 
 			}
 		}
@@ -75,14 +74,13 @@ public class ProjectDeductiveDatabase {
 
 	public static String cargarSintomasDePersonas() {
 		cargarArchivos();
-		String sintomas = "";
+		String sintomas = "******************** Estas personas tienen estos sintomas *************************\n\n";
 		datos = getDatos(answerSet);
-		System.out.println(" ***SINTOMAS DE PERSONAS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("tieneSintoma")){
 				//System.out.print("    " + elDato.getArgument(0));
 				//System.out.println("  -->  " + elDato.getArgument(1));
-				sintomas = sintomas + elDato.getArgument(0) + "  -->  " + elDato.getArgument(1) + "\n";
+				sintomas = sintomas + elDato.getArgument(0).toUpperCase() + "  tiene  " + elDato.getArgument(1) + "\n";
 			}
 		}
 		return sintomas;
@@ -90,14 +88,13 @@ public class ProjectDeductiveDatabase {
 
 	public static String cargarMedicinaEnfermedad() {
 		cargarArchivos();
-		String medicinas = "";
+		String medicinas = "**********************MEDICAMENTOS PARA SINTOMAS***************************\n\n";
 		datos = getDatos(answerSet);
-		System.out.println(" ***PARA ESTAS ENFERMEDADES SE USAN ESTAS \"MEDICINAS\"*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("enfermedad")){
 				//System.out.print(" Para enfermedad: " + elDato.getArgument(0));
 				//System.out.println(" tomar  -->  " + elDato.getArgument(1));
-				medicinas = medicinas + " Para enfermedad: " + elDato.getArgument(0) + " tomar  -->  " + elDato.getArgument(1) + "\n";
+				medicinas = medicinas + "Para " + elDato.getArgument(0).toUpperCase() + " tomar " + elDato.getArgument(1) + "\n";
 			}
 		}
 		return medicinas;
@@ -105,14 +102,13 @@ public class ProjectDeductiveDatabase {
 
 	public static String cargarPuedeEstarEnfermo() {
 		cargarArchivos();
-		String posibleEnfermedad = "";
+		String posibleEnfermedad = "***********ENFERMEDADES QUE PUEDE TENER UNA PERSONA***********\n\n";
 		datos = getDatos(answerSet);
-		System.out.println(" ***ENFERMEDADES DE LAS CUALES PUEDEN ESTAR ENFERMAS LAS PERSONAS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedeEstarEnfermoDe")){
 				//System.out.print(elDato.getArgument(0).toUpperCase());
 				//System.out.println(" puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase());
-				posibleEnfermedad = posibleEnfermedad + elDato.getArgument(0).toUpperCase() + " puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase() + "\n";
+				posibleEnfermedad = posibleEnfermedad + elDato.getArgument(0).toUpperCase() + " puede tener  ->  " + elDato.getArgument(1).toUpperCase() + "\n";
 			}
 		}
 		return posibleEnfermedad;
@@ -120,14 +116,13 @@ public class ProjectDeductiveDatabase {
 
 	public static String cargarPosiblesMedicamentos() {
 		cargarArchivos();
-		String medicamentos = "";
+		String medicamentos = "***********MEDICAMENTOS PARA CURAR ENFERMEDADES***************************\n\n";
 		datos = getDatos(answerSet);
-		System.out.println(" ***ESTO PUEDEN TOMAR LAS PERSONAS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedeTomar")){
 				//System.out.print(elDato.getArgument(0).toUpperCase());
 				//System.out.println(" puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase());
-				medicamentos = medicamentos + elDato.getArgument(0).toUpperCase() + " puede estar enfermo de  ->  " + elDato.getArgument(1).toUpperCase() + "\n";
+				medicamentos = medicamentos + elDato.getArgument(0).toUpperCase() + " puede tomar  ->  " + elDato.getArgument(1).toUpperCase() + "\n";
 			}
 		}
 		return medicamentos;
@@ -229,6 +224,20 @@ public class ProjectDeductiveDatabase {
 			database.addFact(fact);
 			database.show();
 		}
+	}
+
+	public static String cargarEnfermedadesSinCura() {
+		cargarArchivos();
+		String epidemia = "*************ESTAS ENFERMEDADES SON PELIGROSISIMAS*************\n\nSON ENFERMEDADES QUE NO HAY MEDICAMENTOS PARA \n" +
+				"CURARLAS, POR LO QUE PUEDEN HACER UNA EPIDEMIA!!!\n \n";
+		datos = getDatos(answerSet);
+		for(Dato elDato:datos){
+			if(elDato.getPredicate().equals("enfermedadSinCura")){
+				//System.out.println(" " + elDato.getArgument(0) + " y " + elDato.getArgument(1) + " pueden ser amigos enfermos.");
+				epidemia = epidemia + elDato.getArgument(0).toUpperCase();
+			}
+		}
+		return epidemia;
 	}
 
 }//end ProjectDeductiveDatabase

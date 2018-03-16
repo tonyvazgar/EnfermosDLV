@@ -68,25 +68,26 @@ public class InterfazPrincipal extends Frame{
 
         Button botonAccionado = (Button) evento.getSource();
 
-        if(botonAccionado == verAnswerSet){
+        if (botonAccionado == verAnswerSet) {
             consola.setText(ProjectDeductiveDatabase.cargarAnswerSet());
-        }else if(botonAccionado == personasExistentes) {
+        } else if (botonAccionado == personasExistentes) {
             consola.setText(ProjectDeductiveDatabase.cargarPersonas());
-        }else if(botonAccionado == sintomasDePersonas){
+        } else if (botonAccionado == sintomasDePersonas) {
             consola.setText(ProjectDeductiveDatabase.cargarSintomasDePersonas());
-        }else if(botonAccionado == medicamentosParaEnfermedad){
+        } else if (botonAccionado == medicamentosParaEnfermedad) {
             consola.setText(ProjectDeductiveDatabase.cargarMedicinaEnfermedad());
-        }else if(botonAccionado == posiblesEnfermedades){
+        } else if (botonAccionado == posiblesEnfermedades) {
             consola.setText(ProjectDeductiveDatabase.cargarPuedeEstarEnfermo());
-        }else if(botonAccionado == puedeTomarUnaPersona){
+        } else if (botonAccionado == puedeTomarUnaPersona) {
             consola.setText(ProjectDeductiveDatabase.cargarPosiblesMedicamentos());
-        }else if(botonAccionado == enfermedadesSinCura){
+        } else if(botonAccionado == enfermedadesSinCura){
+            consola.setText(ProjectDeductiveDatabase.cargarEnfermedadesConCura());
         }else if(botonAccionado == liciados){
             consola.setText(ProjectDeductiveDatabase.cargarDesahuciado());
         }else if(botonAccionado == amigosEnfermos){
             consola.setText(ProjectDeductiveDatabase.cargarAmigos());
         }else if(botonAccionado == nuevosHechos){
-
+            consola.setText(ProjectDeductiveDatabase.cargarEnfermedadesSinCura());
         }
     }
 
