@@ -34,7 +34,7 @@ public class InterfazPrincipal extends Frame{
      *            Constructor de la clase             *
      * ---------------------------------------------- */
     public InterfazPrincipal() {
-        setTitle("*PROGRAMA EN DLV*");
+        setTitle("*PROGRAMITA EN DLV*");
         setBounds(100, 100, 900, 800);
         setLocationRelativeTo(null);
         setBackground(new Color(255,255,255));

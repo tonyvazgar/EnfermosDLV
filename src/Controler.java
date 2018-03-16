@@ -11,6 +11,7 @@ public class Controler implements ActionListener {
         this.model = model;
         this.view = view;
     }
+
     public void actionPerformed(ActionEvent event){
         Button botonAccionado = (Button) event.getSource();
         if (botonAccionado == view.verAnswerSet) {

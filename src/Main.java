@@ -5,14 +5,14 @@ public class Main {
         ProjectDeductiveDatabase model;
         InterfazPrincipal view;
         Controler controler;
-        //Menu menu;
+        Menu menu;
 
         model = new ProjectDeductiveDatabase();
-        //menu = new Menu(model);
+        menu = new Menu(model);
         view = new InterfazPrincipal();
         controler = new Controler(model, view);
 
         view.inicia(controler);
-        //menu.iniciar();
+        menu.iniciar();
     }
 }
