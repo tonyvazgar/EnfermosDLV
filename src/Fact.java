@@ -31,8 +31,6 @@ public class Fact implements Comparable
 		}//end else
 	}//end constructor
 
-
-
 	private boolean isLegalAtom(String anArgument)
 	{
 		boolean legal;
@@ -80,8 +78,6 @@ public class Fact implements Comparable
 		}//end while
 		return legal;
 	}//end isLegalAtom
-
-
 
 	private boolean startsWithUppercase(String anArgument)
 	{
@@ -137,7 +133,6 @@ public class Fact implements Comparable
 		arity = arity + 1;
 	}//end addArgument
 
-
 	public void addArgument(String anArgument)
 	{
 		if(!startsWithUppercase(anArgument))
@@ -160,7 +155,6 @@ public class Fact implements Comparable
 		}//end else
 	}//end addArgument
 
-
 	public void addStringArgument(String anArgument)
 	{
 		String theArgument;
@@ -171,8 +165,6 @@ public class Fact implements Comparable
 		arguments.add(theArgument);
 		arity = arity + 1;
 	}//end addStringArgument
-
-
 
 	public int compareTo(Object anObject)
 	{
@@ -185,7 +177,6 @@ public class Fact implements Comparable
 		stringOtherfact = otherFact.toString();
 		return stringThisFact.compareTo(stringOtherfact);
 	}//end compareTo
-
 
 	public String toString()
 	{

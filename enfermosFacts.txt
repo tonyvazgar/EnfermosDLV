@@ -6,6 +6,9 @@ persona(carlos).
 persona(luis).
 persona(monica).
 persona(victor).
+persona(juan).
+persona(pepe).
+persona(miley).
 
 tieneSintoma(tony, "presion alta").
 tieneSintoma(tony, "dolor de ojos").
@@ -24,6 +27,16 @@ tieneSintoma(luis, torticolis).
 
 tieneSintoma(victor, moretones).
 tieneSintoma(victor, inflamacion).
+
+tieneSintoma(juan, nauceas).
+tieneSintoma(juan, fiebre).
+tieneSintoma(juan, catarro).
+
+tieneSintoma(pepe, inflamacion).
+
+tieneSintoma(miley, "dificultad respiratoria").
+tieneSintoma(miley, "dolor en el pecho").
+
 
 medicamento(paracetamol).
 medicamento(febrax).

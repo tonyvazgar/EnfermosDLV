@@ -2,6 +2,7 @@
  * Created by TonyVazgar on 1/27/18.
  */
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,15 +28,17 @@ public class InterfazPrincipal extends Frame{
     Button liciados;
     Button amigosEnfermos;
     Button sinCura;
-
+    Button buscarPorPalabra;
+    TextField buscarPorPalabraField;
     TextArea consola;
+    Label ingresaUnaPalabra;
 
     /* ---------------------------------------------- *
      *            Constructor de la clase             *
      * ---------------------------------------------- */
     public InterfazPrincipal() {
         setTitle("*PROGRAMITA EN DLV*");
-        setBounds(100, 100, 900, 800);
+        setBounds(100, 100, 1200, 800);
         setLocationRelativeTo(null);
         setBackground(new Color(255,255,255));
         setLayout(null);
@@ -65,29 +68,37 @@ public class InterfazPrincipal extends Frame{
         liciados = new Button("Ver personas desahuciadas");
         amigosEnfermos = new Button("Amigos que están en las buenas y en las malas");
         sinCura = new Button("Ver enfermedades SIN cura");
+        buscarPorPalabra = new Button("Bucar por palabra");
+        buscarPorPalabraField = new TextField();
+        ingresaUnaPalabra = new Label("Ingresa una palabra para buscar informacion relacionada:");
 
-        verAnswerSet.setBounds(570, 100, 300, 20);
+        verAnswerSet.setBounds(570, 100, 400, 20);
         verAnswerSet.setFont(tipografia);
         add(verAnswerSet);
-        personasExistentes.setBounds(570, 140, 300, 20);
+        personasExistentes.setBounds(570, 140, 400, 20);
         add(personasExistentes);
-        sintomasDePersonas.setBounds(570, 180, 300, 20);
+        sintomasDePersonas.setBounds(570, 180, 400, 20);
         add(sintomasDePersonas);
-        medicamentosParaEnfermedad.setBounds(570, 220, 300, 20);
+        medicamentosParaEnfermedad.setBounds(570, 220, 400, 20);
         add(medicamentosParaEnfermedad);
-        posiblesEnfermedades.setBounds(570,260,300,20);
+        posiblesEnfermedades.setBounds(570,260,400,20);
         add(posiblesEnfermedades);
-        puedeTomarUnaPersona.setBounds(570,300,300,20);
+        puedeTomarUnaPersona.setBounds(570,300,400,20);
         add(puedeTomarUnaPersona);
-        enfermedadesSinCura.setBounds(570,340,300,20);
+        enfermedadesSinCura.setBounds(570,340,400,20);
         add(enfermedadesSinCura);
-        liciados.setBounds(570,380,300,20);
+        liciados.setBounds(570,380,400,20);
         add(liciados);
-        amigosEnfermos.setBounds(570,420,300,20);
+        amigosEnfermos.setBounds(570,420,400,20);
         add(amigosEnfermos);
-        sinCura.setBounds(570,460,300,20);
+        sinCura.setBounds(570,460,400,20);
         add(sinCura);
-
+        ingresaUnaPalabra.setBounds(570, 540, 400, 20);
+        add(ingresaUnaPalabra);
+        buscarPorPalabraField.setBounds(570, 560, 400, 20);
+        add(buscarPorPalabraField);
+        buscarPorPalabra.setBounds(570,600,400,20);
+        add(buscarPorPalabra);
     }
 
     private void ponerConsola(){
@@ -115,14 +126,15 @@ public class InterfazPrincipal extends Frame{
 
     public void setActionListener(Controler theController) {
         verAnswerSet.addActionListener(theController);
+        personasExistentes.addActionListener(theController);
         sintomasDePersonas.addActionListener(theController);
         medicamentosParaEnfermedad.addActionListener(theController);
         posiblesEnfermedades.addActionListener(theController);
         puedeTomarUnaPersona.addActionListener(theController);
-        System.out.println("asdsdsdsfafaf");
         enfermedadesSinCura.addActionListener(theController);
         liciados.addActionListener(theController);
         amigosEnfermos.addActionListener(theController);
         sinCura.addActionListener(theController);
+        buscarPorPalabra.addActionListener(theController);
     }
 }

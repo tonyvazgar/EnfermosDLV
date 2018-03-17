@@ -146,7 +146,6 @@ public class ProjectDeductiveDatabase {
 		String amigos = "***********PERSONAS QUE TIENEN LA MISMA ENFERMEDAD***************************\n\nDecimos que dos personas son compañeros de sintomas\n" +
 				"si comparten los mismos sintomas y tienen la misma enfermedad\n\n";
 		datos = getDatos(answerSet);
-		System.out.println(" ***PUEDEN SER AMIGOS ENFERMOS*** ");
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("puedenSerAmigosEnfermos")){
 				amigos = amigos + elDato.getArgument(0).toUpperCase() + " y " + elDato.getArgument(1).toUpperCase() + " pueden ser amigos enfermos." + "\n";
@@ -179,6 +178,29 @@ public class ProjectDeductiveDatabase {
 				i = i + 1;
 			}
 		}
+		return resumen;
+	}
+
+	public static String resumenPorPalabra(String aBuscar) {
+		String resumen = "\nRESULTADOS A BUSCAR PARA --> " + aBuscar.toUpperCase() + "\n\n";
+		cargarArchivos();
+		datos = getDatos(answerSet);
+		Boolean encontrado = false;
+		for (Dato elDato : datos) {
+				int i = 0;
+				while (i < elDato.getArity()) {
+					if (elDato.getArgument(i).equals(aBuscar)) {
+						encontrado = true;
+						resumen = resumen + elDato.getPredicate() + elDato.arguments.toString().replace("[", "(").replace("]", ")") + "\n";
+					}
+					i = i + 1;
+				}
+		}
+		if(!encontrado){
+			return "\n\n\n\n\nNO HAY RESULTADOS PARA LA PALABRA " + aBuscar.toUpperCase();
+		}
+
+
 		return resumen;
 	}
 
@@ -217,7 +239,7 @@ public class ProjectDeductiveDatabase {
 		datos = getDatos(answerSet);
 		for(Dato elDato:datos){
 			if(elDato.getPredicate().equals("enfermedadSinCura")){
-				epidemia = epidemia + elDato.getArgument(0).toUpperCase();
+				epidemia = epidemia + elDato.getArgument(0).toUpperCase() + "\n";
 			}
 		}
 		return epidemia;

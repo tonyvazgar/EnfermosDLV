@@ -34,6 +34,13 @@ public class Controler implements ActionListener {
             view.consola.setText(ProjectDeductiveDatabase.cargarAmigos());
         }else if(botonAccionado == view.sinCura){
             view.consola.setText(ProjectDeductiveDatabase.cargarEnfermedadesSinCura());
+        }else if(botonAccionado == view.buscarPorPalabra){
+            view.consola.setText(ProjectDeductiveDatabase.resumenPorPalabra(obtieneDatoDelView()));
         }
+    }
+
+    private String obtieneDatoDelView() {
+        String aBuscar = view.buscarPorPalabraField.getText();
+        return aBuscar;
     }
 }

@@ -80,3 +80,4 @@ enfermedadSinCura(X):-
 	noTieneCura(PERSONA),
 	tieneSintoma(PERSONA, X),
 	not sintomaComun(X).
+
