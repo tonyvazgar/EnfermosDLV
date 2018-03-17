@@ -21,8 +21,6 @@ public class Answer implements FactHandler
         //end if
     }//end  handleResult
 
-
-
     public Vector<FactResult> getAnswerSet()
     {
         return answerSet;

@@ -1,5 +1,5 @@
 /*
- * Created by TonyVazgar on 1/27/18.
+ * Created by TonyVazgar on 3/10/18.
  */
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 
-public class InterfazPrincipal extends Frame{
+public class Interfaz extends Frame{
     
     /* ---------------------------------------------- *
      *           Elementos de la interfaz             *
@@ -36,9 +36,9 @@ public class InterfazPrincipal extends Frame{
     /* ---------------------------------------------- *
      *            Constructor de la clase             *
      * ---------------------------------------------- */
-    public InterfazPrincipal() {
+    public Interfaz() {
         setTitle("*PROGRAMITA EN DLV*");
-        setBounds(100, 100, 1200, 800);
+        setBounds(100, 100, 1000, 800);
         setLocationRelativeTo(null);
         setBackground(new Color(255,255,255));
         setLayout(null);
@@ -93,11 +93,11 @@ public class InterfazPrincipal extends Frame{
         add(amigosEnfermos);
         sinCura.setBounds(570,460,400,20);
         add(sinCura);
-        ingresaUnaPalabra.setBounds(570, 540, 400, 20);
+        ingresaUnaPalabra.setBounds(570, 590, 400, 20);
         add(ingresaUnaPalabra);
-        buscarPorPalabraField.setBounds(570, 560, 400, 20);
+        buscarPorPalabraField.setBounds(570, 610, 400, 20);
         add(buscarPorPalabraField);
-        buscarPorPalabra.setBounds(570,600,400,20);
+        buscarPorPalabra.setBounds(570,650,400,20);
         add(buscarPorPalabra);
     }
 

@@ -1,3 +1,6 @@
+/*
+ * Created by TonyVazgar on 3/4/18.
+ */
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

@@ -1,13 +1,16 @@
+/*
+ * Created by TonyVazgar on 3/9/18.
+ */
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controler implements ActionListener {
 
-    InterfazPrincipal view;
+    Interfaz view;
     ProjectDeductiveDatabase model;
 
-    public Controler(ProjectDeductiveDatabase model, InterfazPrincipal view){
+    public Controler(ProjectDeductiveDatabase model, Interfaz view){
         this.model = model;
         this.view = view;
     }
@@ -40,7 +43,8 @@ public class Controler implements ActionListener {
     }
 
     private String obtieneDatoDelView() {
-        String aBuscar = view.buscarPorPalabraField.getText();
+        String aBuscar;
+        aBuscar = view.buscarPorPalabraField.getText();
         return aBuscar;
     }
 }

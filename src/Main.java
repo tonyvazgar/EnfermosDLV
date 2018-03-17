@@ -1,3 +1,6 @@
+/*
+ * Created by TonyVazgar on 3/1/18.
+ */
 public class Main {
 
     public static void main(String[] Args){
@@ -11,16 +14,16 @@ public class Main {
          * ---------------------------------------------- */
 
         ProjectDeductiveDatabase model;
-        InterfazPrincipal view;
+        Interfaz view;
         Controler controler;
-        Menu menu;
+        //Menu menu;
 
         model = new ProjectDeductiveDatabase();
-        menu = new Menu(model);
-        view = new InterfazPrincipal();
+        view = new Interfaz();
         controler = new Controler(model, view);
+        //menu = new Menu(model);
 
         view.inicia(controler);
-        menu.iniciar();
+        //menu.iniciar();
     }
 }
